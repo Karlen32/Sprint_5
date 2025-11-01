@@ -16,14 +16,10 @@ class TestAds:
         assert login_prompt == AdsTexts.LOGIN_PROMPT
 
 
-    def test_create_ad_authorized_user(self, driver, login_data, ads_book_data):
+    def test_create_ad_authorized_user(self, driver, login_user, ads_book_data):
 
-        email, password = login_data
-        driver.find_element(*LoginPageLocators.LOGIN_AND_REGISTRATION_BUTTON).click()
-        driver.find_element(*LoginPageLocators.EMAIL_INPUT).send_keys(email)
-        driver.find_element(*LoginPageLocators.PASSWORD_INPUT).send_keys(password)
-        driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
-        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LoginPageLocators.LOGOUT_BUTTON))
+        WebDriverWait(login_user, 5).until(
+            EC.visibility_of_element_located(LoginPageLocators.LOGOUT_BUTTON))
         
 
         title, description, price = ads_book_data
