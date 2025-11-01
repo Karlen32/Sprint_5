@@ -1,0 +1,3 @@
+LOGIN_EMAIL = "karlen000@gmail.com"
+LOGIN_PASSWORD = "asd123"
+DEFAULT_PRICE = "55000"

@@ -1,7 +1,9 @@
 import pytest
-import random
 from selenium import webdriver
 from data.urls import Urls
+from data import test_data
+from helpers import generators
+
 
 
 
@@ -15,25 +17,22 @@ def driver():
 
 
 @pytest.fixture
-def random_email():
-    return f"test_{random.randint(1000000000, 9999999999)}@gmail.com"
+def login_data():
+    return test_data.LOGIN_EMAIL, test_data.LOGIN_PASSWORD
+
 
 @pytest.fixture
-def random_password():
-    return f"test_{random.randint(1000000000, 9999999999)}"
-
-@pytest.fixture
-def login():
-    email = "karlen000@gmail.com"
-    password = "asd123"
+def random_user():
+    email = generators.generate_random_email()
+    password = generators.generate_random_password()
     return email, password
+
 
 @pytest.fixture
 def ads_book_data():
-    TITLE = f"Test Book {random.randint(1000, 9999)}"
-    DESCRIPTION = f"Test Description {random.randint(1000, 9999)}"
-    PRICE = "55000"
-    return TITLE, DESCRIPTION, PRICE
+    title, description = generators.generate_book_data()
+    price = test_data.DEFAULT_PRICE
+    return title, description, price
 
 
 
