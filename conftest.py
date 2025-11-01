@@ -1,6 +1,7 @@
 import pytest
 import random
 from selenium import webdriver
+from data.urls import Urls
 
 
 
@@ -8,7 +9,7 @@ from selenium import webdriver
 def driver():
     driver = webdriver.Chrome()
     driver.maximize_window()
-    driver.get("https://qa-desk.stand.praktikum-services.ru/")
+    driver.get(Urls.BASE_URL)
     yield driver
     driver.quit()
 
