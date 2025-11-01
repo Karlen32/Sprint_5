@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import CreateAdPageLocators, LoginPageLocators
+from data.texts import AdsTexts
 import pytest
 
 
@@ -12,7 +13,7 @@ class TestAds:
         driver.find_element(*CreateAdPageLocators.CREATE_AD_BUTTON).click()
         login_prompt = WebDriverWait(driver, 5).until(
             EC.visibility_of_element_located(CreateAdPageLocators.LOGIN_PROMPT)).text
-        assert login_prompt == "Чтобы разместить объявление, авторизуйтесь"
+        assert login_prompt == AdsTexts.LOGIN_PROMPT
 
 
     def test_create_ad_authorized_user(self, driver, login_data, ads_book_data):
@@ -47,7 +48,7 @@ class TestAds:
         assert book_image.is_displayed()
 
         ad_city = driver.find_element(*CreateAdPageLocators.AD_CiTY)
-        assert ad_city.text == "Казань"
+        assert ad_city.text == AdsTexts.AD_CITY
 
 
     

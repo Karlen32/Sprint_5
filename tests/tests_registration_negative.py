@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import RegistrationPageLocators
+from data.texts import RegistrationTexts
 from turtle import color
 import pytest
 
@@ -21,7 +22,7 @@ class TestRegistrationNegative:
 
         error = WebDriverWait(driver, 3).until(
             EC.visibility_of_element_located(RegistrationPageLocators.ERROR_MESSAGE)).text
-        assert error == "Ошибка"
+        assert error == RegistrationTexts.ERROR_MESSAGE
 
 
         email_field = driver.find_element(*RegistrationPageLocators.EMAIL_INPUT)
@@ -33,7 +34,7 @@ class TestRegistrationNegative:
 
 
         error_fields = driver.find_elements(*RegistrationPageLocators.RED_BORDER)
-        assert color in error_fields == "#ff698a" or "rgba(255, 105, 138, 1)"
+        assert color in error_fields == RegistrationTexts.ERROR_FIELD_COLOR_HEX or RegistrationTexts.ERROR_FIELD_COLOR_RGBA
 
 
 
@@ -48,7 +49,7 @@ class TestRegistrationNegative:
 
         error = WebDriverWait(driver, 3).until(
             EC.visibility_of_element_located(RegistrationPageLocators.ERROR_MESSAGE))
-        assert error.text == "Ошибка"
+        assert error.text == RegistrationTexts.ERROR_MESSAGE
 
 
         email_field = driver.find_element(*RegistrationPageLocators.EMAIL_INPUT)
@@ -60,6 +61,6 @@ class TestRegistrationNegative:
 
 
         error_fields = driver.find_elements(*RegistrationPageLocators.RED_BORDER)
-        assert color in error_fields == "#ff698a" or "rgba(255, 105, 138, 1)"
+        assert color in error_fields == RegistrationTexts.ERROR_FIELD_COLOR_HEX or RegistrationTexts.ERROR_FIELD_COLOR_RGBA
 
     
