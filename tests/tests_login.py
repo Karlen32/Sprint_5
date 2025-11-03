@@ -7,7 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 
-@pytest.mark.usefixtures("driver")
 class TestLogin:
 
 

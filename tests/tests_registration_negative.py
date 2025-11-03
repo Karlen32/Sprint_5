@@ -7,7 +7,6 @@ import pytest
 
 
 
-@pytest.mark.usefixtures("driver")
 class TestRegistrationNegative:
 
     def test_registration_invalid_email(self, driver, random_user):

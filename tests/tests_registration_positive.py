@@ -5,7 +5,6 @@ from locators import RegistrationPageLocators
 
 
 
-@pytest.mark.usefixtures("driver")
 class TestRegistration:
 
 

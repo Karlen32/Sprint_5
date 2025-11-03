@@ -2,11 +2,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import CreateAdPageLocators, LoginPageLocators
 from data.texts import AdsTexts
-import pytest
 
 
 
-@pytest.mark.usefixtures("driver")
+
 class TestAds:
 
     def test_create_ad_unauthorized_user(self, driver):
