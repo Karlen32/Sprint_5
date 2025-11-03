@@ -3,7 +3,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import RegistrationPageLocators
 from data.texts import RegistrationTexts
 from turtle import color
-import pytest
 
 
 
