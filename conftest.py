@@ -17,12 +17,6 @@ def driver():
     driver.quit()
 
 
-@pytest.fixture
-def random_user():
-    email = generators.generate_random_email()
-    password = generators.generate_random_password()
-    return email, password
-
 
 @pytest.fixture
 def ads_book_data():

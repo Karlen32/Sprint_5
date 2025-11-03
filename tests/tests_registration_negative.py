@@ -3,14 +3,15 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import RegistrationPageLocators
 from data.texts import RegistrationTexts
 from turtle import color
+from helpers import generators
 
 
 
 class TestRegistrationNegative:
 
-    def test_registration_invalid_email(self, driver, random_user):
+    def test_registration_invalid_email(self, driver):
 
-        _, password = random_user
+        password = generators.generate_random_password()
         driver.find_element(*RegistrationPageLocators.LOGIN_AND_REGISTRATION_BUTTON).click()
         driver.find_element(*RegistrationPageLocators.NO_ACCOUNT_BUTTON).click()
         driver.find_element(*RegistrationPageLocators.EMAIL_INPUT).send_keys("karlen#gmail.com")
